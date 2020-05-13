@@ -13,12 +13,26 @@ public class GrowThings : MonoBehaviour {
     private Vector3 placement;
     private float margin = 0.5f;
     private float spin;
+    private int grassCounter;
+    public int grassLimit = 50;
+
+
+    void Awake() {
+        grassCounter = 0;
+    }
 
     void Start() {
         squareScale = transform.lossyScale.x;
     }
 
     void Update() {
+        if (grassCounter < grassLimit){
+            GrowGrass();
+            grassCounter++;
+        }
+    }
+
+    void GrowGrass(){
         randomX = Random.Range(-squareScale/2+margin, squareScale/2-margin);
         randomZ = Random.Range(-squareScale/2+margin, squareScale/2-margin);
         spin = Random.Range(0, 179);
