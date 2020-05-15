@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.5651618, g: 0.6357211, b: 0.7219674, a: 1}
+  m_IndirectSpecularColor: {r: 0.28502673, g: 0.37139347, b: 0.49600998, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -322,8 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c245361b2d8a34e4d8a4a45809d2b87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  agent: {fileID: 0}
+  cam: {fileID: 518436805}
+  agent: {fileID: 355179376}
 --- !u!195 &355179376
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -389,7 +389,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_RenderPostProcessing: 1
-  m_Antialiasing: 1
+  m_Antialiasing: 2
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -662,7 +662,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
 --- !u!4 &653260038
 Transform:
   m_ObjectHideFlags: 0
@@ -694,7 +694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &940336481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5722,6 +5722,7 @@ MonoBehaviour:
   grassPrefab: {fileID: 8968125689091812400, guid: b490e148588e3480cb5557899d60e496,
     type: 3}
   debugMode: 1
+  grassLimit: 1000
 --- !u!1 &1483011050
 GameObject:
   m_ObjectHideFlags: 0
@@ -6451,6 +6452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2138677393}
   - component: {fileID: 2138677392}
+  - component: {fileID: 2138677394}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -6479,10 +6481,10 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.02
-    m_NormalBias: 0.1
-    m_NearPlane: 0.1
+    m_Strength: 0.911
+    m_Bias: 1.64
+    m_NormalBias: 1.73
+    m_NearPlane: 1.99
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -6533,3 +6535,16 @@ Transform:
   m_Father: {fileID: 1877930626}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 130, z: 90}
+--- !u!114 &2138677394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138677391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UsePipelineSettings: 0
