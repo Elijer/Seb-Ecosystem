@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
-    public CharacterController controller;
-    public float speed1 = 12f;
-    public float speed2 = 2f;
+public class PlayerMovement : MonoBehaviour {
 
-    public float gravity;
 
     // Controls are determined based on the active view, which is managed by CameraManager.cs
     public Camera firstPerson;
 	public Camera thirdPerson;
+    public float speed1 = 12f;
+    public float speed2 = 2f;
+    public CharacterController controller;
+    
+    private float gravity;
 
     void Update() {
 
@@ -35,27 +35,13 @@ public class PlayerMovement : MonoBehaviour
 
     void ThirdPersonControls(float pace){
         transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
-
-        if (Input.GetKey("w")){
-            ControllerMove("forward", pace);
-        }
-        
-        if (Input.GetKey("s")){
-            ControllerMove("back", pace);
-        }
-
-        if (Input.GetKey("d")){
-            ControllerMove("right", pace);
-        }
-
-        if (Input.GetKey("a")){
-            ControllerMove("left", pace);
-        }
-
+        if (Input.GetKey("w")) ControllerMove("forward", pace);
+        if (Input.GetKey("s")) ControllerMove("back", pace);
+        if (Input.GetKey("d")) ControllerMove("right", pace);
+        if (Input.GetKey("a")) ControllerMove("left", pace);
     }
 
     void ControllerMove(string direction, float pace){
-
         switch(direction){
             case "forward": controller.Move(transform.forward * pace * Time.deltaTime);
             break;
@@ -74,9 +60,7 @@ public class PlayerMovement : MonoBehaviour
     void Gravity(){
         gravity -= 9.81f * Time.deltaTime;
         controller.Move(new Vector3(0, gravity, 0));
-        if (controller.isGrounded){
-            gravity = 0;
-        }
+        if (controller.isGrounded) gravity = 0;
     }
 
 
