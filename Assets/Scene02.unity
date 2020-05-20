@@ -510,7 +510,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &602546724
 Transform:
   m_ObjectHideFlags: 0
@@ -782,7 +782,7 @@ MonoBehaviour:
   thirdPerson: {fileID: 1791437877}
   speed1: 12
   speed2: 7
-  speed3: 100
+  speed3: 200
   controller: {fileID: 940336482}
   focus: {fileID: 334965403}
 --- !u!143 &940336482
@@ -6277,6 +6277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
   playerBody: {fileID: 940336483}
+  thisCamera: {fileID: 1687258584}
 --- !u!1 &1791437872
 GameObject:
   m_ObjectHideFlags: 0

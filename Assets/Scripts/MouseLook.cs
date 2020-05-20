@@ -6,6 +6,7 @@ public class MouseLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
     public Transform playerBody;
+    public Camera thisCamera;
     private float xRotation = 0f;
 
     private bool lookLock = false;
@@ -14,13 +15,18 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         //Hides Cursor
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-      if (Input.GetMouseButtonDown(0)){
+    void Update() {
+      if (thisCamera.enabled == true){
+        MouseLooker();
+      }
+    }
+
+    void MouseLooker(){
+            if (Input.GetMouseButtonDown(0)){
           //Debug.Log("Mouse Down");
           lookLock = !lookLock;
       }
