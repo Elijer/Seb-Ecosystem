@@ -10,13 +10,11 @@ public class CameraManager : MonoBehaviour {
     public Camera cam4;
 
     void Start(){
-        //Switches the camera
-        CamSwitcher(4);
+        CamSwitcher(2);    //Switches the camera
     }
 
     void Update() {
-        //Switches camera according to Key commands
-        KeyScanner();
+        KeyScanner();      //Switches camera according to Key commands
     }
 
     void KeyScanner(){
@@ -47,8 +45,8 @@ public class CameraManager : MonoBehaviour {
         } else if (cam == 4){
             cam1.enabled = false;   cam1.GetComponent<AudioListener>().enabled = false;
 			cam2.enabled = false;   cam2.GetComponent<AudioListener>().enabled = false;
-            cam3.enabled = false;    cam3.GetComponent<AudioListener>().enabled = false; 
-            cam4.enabled = true;   cam4.GetComponent<AudioListener>().enabled = true;
+            cam3.enabled = false;   cam3.GetComponent<AudioListener>().enabled = false; 
+            cam4.enabled = true;    cam4.GetComponent<AudioListener>().enabled = true;
         } else {
             Debug.Log("CamSwitcher doesn't take that as an argument, or that camera doesn't exist");
         }
