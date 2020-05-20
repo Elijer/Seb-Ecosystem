@@ -8,19 +8,23 @@ public class PlayerMovement : MonoBehaviour {
     // Controls are determined based on the active view, which is managed by CameraManager.cs
     public Camera firstPerson;
 	public Camera thirdPerson;
+    public Camera RTS;
     public float speed1 = 12f;
     public float speed2 = 2f;
     public CharacterController controller;
-    
+
     private float gravity;
 
-    void Update() {
+    void FixedUpdate() {
 
         Gravity();
 
         if (firstPerson.enabled){
             FirstPersonControls(speed1);
         } else if (thirdPerson.enabled){
+            ThirdPersonControls(speed2);
+        } else if (RTS.enabled){
+            Debug.Log("RTS enabled");
             ThirdPersonControls(speed2);
         }
     }
@@ -35,6 +39,23 @@ public class PlayerMovement : MonoBehaviour {
 
     void ThirdPersonControls(float pace){
         transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+
+       /*if (Input.GetKey("w")){
+            controller.Move(transform.forward * pace * Time.deltaTime);
+        }
+
+        if (Input.GetKey("s")){
+            controller.Move(transform.forward * pace * Time.deltaTime * -1f);
+        }
+
+        if (Input.GetKey("d")){
+            controller.Move(transform.right * pace * Time.deltaTime);
+        }
+
+        if (Input.GetKey("a")){
+            controller.Move(transform.right * pace * Time.deltaTime * -1f);
+        }*/
+
         if (Input.GetKey("w")) ControllerMove("forward", pace);
         if (Input.GetKey("s")) ControllerMove("back", pace);
         if (Input.GetKey("d")) ControllerMove("right", pace);
@@ -43,6 +64,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void ControllerMove(string direction, float pace){
         switch(direction){
+
             case "forward": controller.Move(transform.forward * pace * Time.deltaTime);
             break;
 
