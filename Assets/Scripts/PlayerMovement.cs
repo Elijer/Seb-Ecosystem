@@ -7,13 +7,19 @@ public class PlayerMovement : MonoBehaviour {
 
     // Controls are determined based on the active view, which is managed by CameraManager.cs
     public Camera firstPerson;
-	public Camera thirdPerson;
-    public Camera RTS;
+	public Camera RTS;
+    public Camera thirdPerson;
     public float speed1 = 12f;
     public float speed2 = 2f;
+    public float speed3 = 100f;
     public CharacterController controller;
+    public Rigidbody focus;
 
     private float gravity;
+
+    void Awake(){
+        focus.detectCollisions = false; // prevents this character controller from colliding since it's just a focal point
+    }
 
     void FixedUpdate() {
 
@@ -21,10 +27,9 @@ public class PlayerMovement : MonoBehaviour {
 
         if (firstPerson.enabled){
             FirstPersonControls(speed1);
-        } else if (thirdPerson.enabled){
-            ThirdPersonControls(speed2);
         } else if (RTS.enabled){
-            Debug.Log("RTS enabled");
+            RTSControls(speed3);
+        } else if (thirdPerson.enabled){
             ThirdPersonControls(speed2);
         }
     }
@@ -37,46 +42,54 @@ public class PlayerMovement : MonoBehaviour {
         controller.Move(move * pace * Time.deltaTime);
     }
 
+    void RTSControls(float pace){
+        if (Input.GetKey("w")) RigidbodyMove("forward", pace, focus);
+        if (Input.GetKey("s")) RigidbodyMove("back", pace, focus);
+        if (Input.GetKey("d")) RigidbodyMove("right", pace, focus);
+        if (Input.GetKey("a")) RigidbodyMove("left", pace, focus);
+    }
+
     void ThirdPersonControls(float pace){
         transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
 
-       /*if (Input.GetKey("w")){
-            controller.Move(transform.forward * pace * Time.deltaTime);
-        }
-
-        if (Input.GetKey("s")){
-            controller.Move(transform.forward * pace * Time.deltaTime * -1f);
-        }
-
-        if (Input.GetKey("d")){
-            controller.Move(transform.right * pace * Time.deltaTime);
-        }
-
-        if (Input.GetKey("a")){
-            controller.Move(transform.right * pace * Time.deltaTime * -1f);
-        }*/
-
-        if (Input.GetKey("w")) ControllerMove("forward", pace);
-        if (Input.GetKey("s")) ControllerMove("back", pace);
-        if (Input.GetKey("d")) ControllerMove("right", pace);
-        if (Input.GetKey("a")) ControllerMove("left", pace);
+        if (Input.GetKey("w")) ControllerMove("forward", pace, controller);
+        if (Input.GetKey("s")) ControllerMove("back", pace, controller);
+        if (Input.GetKey("d")) ControllerMove("right", pace, controller);
+        if (Input.GetKey("a")) ControllerMove("left", pace, controller);
     }
 
-    void ControllerMove(string direction, float pace){
+    void ControllerMove(string direction, float pace, CharacterController c){
         switch(direction){
 
-            case "forward": controller.Move(transform.forward * pace * Time.deltaTime);
+            case "forward": c.Move(transform.forward * pace * Time.deltaTime);
             break;
 
-            case "back": controller.Move(transform.forward * pace * Time.deltaTime * -1f);
+            case "back": c.Move(transform.forward * pace * Time.deltaTime * -1f);
             break;
 
-            case "right": controller.Move(transform.right * pace * Time.deltaTime);
+            case "right": c.Move(transform.right * pace * Time.deltaTime);
             break;
 
-            case "left": controller.Move(transform.right * pace * Time.deltaTime * -1f);
+            case "left": c.Move(transform.right * pace * Time.deltaTime * -1f);
             break;
         }
+    }
+
+    void RigidbodyMove(string direction, float pace, Rigidbody rb){
+        switch(direction){
+
+            case "forward": rb.AddForce(transform.forward * pace * Time.deltaTime, ForceMode.VelocityChange);
+            break;
+
+            case "back": rb.AddForce(transform.forward * -1 * pace * Time.deltaTime, ForceMode.VelocityChange);
+            break;
+
+            case "right": rb.AddForce(transform.right *  pace * Time.deltaTime, ForceMode.VelocityChange);
+            break;
+
+            case "left": rb.AddForce(transform.right * -1 * pace * Time.deltaTime, ForceMode.VelocityChange);
+            break;
+        }  
     }
 
     void Gravity(){
