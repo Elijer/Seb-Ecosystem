@@ -576,10 +576,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 940336482}
-  speed: 12
+  speed1: 12
   speed2: 7
-  cam1: {fileID: 1687258584}
-  cam2: {fileID: 518436805}
+  gravity: 0
+  firstPerson: {fileID: 1687258584}
+  thirdPerson: {fileID: 518436805}
 --- !u!143 &940336482
 CharacterController:
   m_ObjectHideFlags: 0
