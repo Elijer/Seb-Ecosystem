@@ -13,6 +13,7 @@ namespace UnityEngine.AI
     [DefaultExecutionOrder(-102)]
     [AddComponentMenu("Navigation/NavMeshSurface", 30)]
     [HelpURL("https://github.com/Unity-Technologies/NavMeshComponents#documentation-draft")]
+    
     public class NavMeshSurface : MonoBehaviour
     {
         [SerializeField]
@@ -366,6 +367,14 @@ namespace UnityEngine.AI
             // Nothing to unshare
             if (m_NavMeshData == null)
                 return false;
+
+
+    /*Assets/Brackeys Assets/NavMeshComponents/Scripts/NavMeshSurface.cs(371,30):
+     warning CS0618: 'PrefabUtility.GetPrefabType(Object)' is obsolete:
+     'Use GetPrefabAssetType
+     and
+     GetPrefabInstanceStatus
+     to get the full picture about Prefab types.'*/
 
             // Prefab parent owns the asset reference
             var prefabType = UnityEditor.PrefabUtility.GetPrefabType(this);
