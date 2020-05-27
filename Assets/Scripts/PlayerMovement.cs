@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     public float speed2 = 2f;
     public float speed3 = 100f;
     public CharacterController controller;
+    //public Transform player;
     public Rigidbody focus;
 
     private float gravity;
@@ -55,6 +56,13 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey("s")) RigidbodyMove("back", pace, focus);
         if (Input.GetKey("d")) RigidbodyMove("right", pace, focus);
         if (Input.GetKey("a")) RigidbodyMove("left", pace, focus);
+
+        if (Input.GetKeyDown("c")){
+            //Debug.Log(focus.GetComponent<Transform>().position.x);
+            Transform centerView = focus.GetComponent<Transform>();
+            //centerView = transform.position;
+            centerView.position = transform.position;
+        }
     }
 
     void ThirdPersonControls(float pace){

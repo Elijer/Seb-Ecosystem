@@ -684,7 +684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &602546724
 Transform:
   m_ObjectHideFlags: 0
@@ -706,7 +706,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602546723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1259,8 +1259,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 940336480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.31, z: 0}
-  m_LocalScale: {x: 1, y: 0.61705, z: 1}
+  m_LocalPosition: {x: 0, y: 1.116, z: 0}
+  m_LocalScale: {x: 1, y: 0.45979482, z: 1}
   m_Children:
   - {fileID: 1483011051}
   - {fileID: 1496724212}
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 724102652}
-  metabolism: 3
+  metabolism: 0.5
 --- !u!1 &1109068617
 GameObject:
   m_ObjectHideFlags: 0
@@ -6300,7 +6300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483011050}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000000044075, y: -0.784, z: -0.000000069821}
+  m_LocalPosition: {x: 0.000000044075, y: -0.79, z: -0.000000069821}
   m_LocalScale: {x: 0.2605388, y: 0.5170618, z: 0.2605388}
   m_Children: []
   m_Father: {fileID: 940336483}
@@ -7271,6 +7271,7 @@ MonoBehaviour:
   cam1: {fileID: 1687258584}
   cam2: {fileID: 518436805}
   cam3: {fileID: 1791437877}
+  player: {fileID: 940336483}
 --- !u!4 &2136341599
 Transform:
   m_ObjectHideFlags: 0
