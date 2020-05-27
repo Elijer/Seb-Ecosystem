@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     public Rigidbody focus;
 
     private float gravity;
+    public float deltaCompensation = 40;
 
     void Awake(){
         focus.detectCollisions = false; // prevents this character controller from colliding since it's just a focal point
@@ -39,7 +40,14 @@ public class PlayerMovement : MonoBehaviour {
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
-        controller.Move(move * pace * Time.deltaTime);
+        float tooFast = move.x + move.z;
+        if (tooFast > 1){
+            float reduction = (tooFast - 1)/2;
+            move = new Vector3(move.x - reduction, move.y, move.z - reduction);
+            controller.Move(move * pace * Time.deltaTime);
+        } else {
+            controller.Move(move * pace * Time.deltaTime);
+        }
     }
 
     void RTSControls(float pace){
@@ -50,12 +58,24 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void ThirdPersonControls(float pace){
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
         transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        Vector3 move = transform.right * x + transform.forward * z;
+        float tooFast = move.x + move.z;
+        if (tooFast > 1){
+            float reduction = (tooFast - 1)/2;
+            move = new Vector3(move.x - reduction, move.y, move.z - reduction);
+            controller.Move(move * pace * Time.deltaTime);
+        } else {
+            controller.Move(move * pace * Time.deltaTime);
+        }
 
+        /*
         if (Input.GetKey("w")) ControllerMove("forward", pace, controller);
         if (Input.GetKey("s")) ControllerMove("back", pace, controller);
         if (Input.GetKey("d")) ControllerMove("right", pace, controller);
-        if (Input.GetKey("a")) ControllerMove("left", pace, controller);
+        if (Input.GetKey("a")) ControllerMove("left", pace, controller);*/
     }
 
     void ControllerMove(string direction, float pace, CharacterController c){
@@ -93,7 +113,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Gravity(){
-        gravity -= 9.81f * Time.deltaTime;
+        gravity -= 9.81f * Time.deltaTime / deltaCompensation;
         controller.Move(new Vector3(0, gravity, 0));
         if (controller.isGrounded) gravity = 0;
     }
