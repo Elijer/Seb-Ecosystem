@@ -4,29 +4,34 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
 
-    public int maxHealth = 8;
+    public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
-    public int metabolism = 30;
+    public float metabolism = 30f;
+    private bool mouthOpen = false;
 
     void Start() {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         InvokeRepeating("Hunger", metabolism, metabolism);
+        mouthOpen = false;
     }
 
     private void OnTriggerEnter(Collider c){
-        //Debug.Log(c.gameObject.tag);
-        if (c.gameObject.tag == "food"){
-            Debug.Log(c.gameObject.tag);
-            Eat(2);
-            Destroy(c.gameObject, 0);
-            
+        if (c.gameObject.tag == "food" && mouthOpen == true){
+                Eat(2);
+                Destroy(c.gameObject, 0);
         }
     }
 
     void Update() {
-        //Eat(2);
+        if (Input.GetKey("space")){
+            mouthOpen = true;
+        } else {
+            mouthOpen = false;
+        }
+
+        currentHealth = Mathf.Clamp(currentHealth, 0, 100);
     }
 
     void Eat(int calories){
