@@ -27,16 +27,19 @@ public class CameraManager : MonoBehaviour {
 
     void CamSwitcher(int cam){
         if (cam == 1){
+            Cursor.lockState = CursorLockMode.Locked;
 			cam1.enabled = true;    cam1.GetComponent<AudioListener>().enabled = true;
 			cam2.enabled = false;   cam2.GetComponent<AudioListener>().enabled = false;
             cam3.enabled = false;   cam3.GetComponent<AudioListener>().enabled = false;
         } else if (cam == 2){
             RotationReset();
+            Cursor.lockState = CursorLockMode.None;
 			cam1.enabled = false;   cam1.GetComponent<AudioListener>().enabled = false;
 			cam2.enabled = true;    cam2.GetComponent<AudioListener>().enabled = true;
             cam3.enabled = false;   cam3.GetComponent<AudioListener>().enabled = false;
         } else if (cam == 3){
             RotationReset();
+            Cursor.lockState = CursorLockMode.Locked;
 			cam1.enabled = false;   cam1.GetComponent<AudioListener>().enabled = false;
 			cam2.enabled = false;   cam2.GetComponent<AudioListener>().enabled = false;
             cam3.enabled = true;    cam3.GetComponent<AudioListener>().enabled = true;

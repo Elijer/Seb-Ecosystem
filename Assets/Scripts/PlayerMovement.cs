@@ -32,10 +32,13 @@ public class PlayerMovement : MonoBehaviour {
         Gravity();
 
         if (firstPerson.enabled){
+            agent.enabled = false;
             FirstPersonControls(speed1);
         } else if (RTS.enabled){
+            agent.enabled = true;
             RTSControls(speed3);
         } else if (thirdPerson.enabled){
+            agent.enabled = false;
             ThirdPersonControls(speed2);
         }
     }

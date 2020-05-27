@@ -19,7 +19,7 @@ public class Health : MonoBehaviour {
 
     private void OnTriggerEnter(Collider c){
         if (c.gameObject.tag == "food" && mouthOpen == true){
-                Eat(2);
+                Eat(10);
                 Destroy(c.gameObject, 0);
         }
     }
