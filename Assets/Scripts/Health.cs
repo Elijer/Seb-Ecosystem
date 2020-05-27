@@ -15,6 +15,16 @@ public class Health : MonoBehaviour {
         InvokeRepeating("Hunger", metabolism, metabolism);
     }
 
+    private void OnTriggerEnter(Collider c){
+        //Debug.Log(c.gameObject.tag);
+        if (c.gameObject.tag == "food"){
+            Debug.Log(c.gameObject.tag);
+            Eat(2);
+            Destroy(c.gameObject, 0);
+            
+        }
+    }
+
     void Update() {
         //Eat(2);
     }

@@ -1282,7 +1282,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 724102652}
-  metabolism: 1
+  metabolism: 3
 --- !u!1 &1109068617
 GameObject:
   m_ObjectHideFlags: 0
@@ -6272,7 +6272,7 @@ MonoBehaviour:
   grassPrefab: {fileID: 8968125689091812400, guid: b490e148588e3480cb5557899d60e496,
     type: 3}
   debugMode: 1
-  grassLimit: 100
+  grassLimit: 3
 --- !u!1 &1483011050
 GameObject:
   m_ObjectHideFlags: 0
