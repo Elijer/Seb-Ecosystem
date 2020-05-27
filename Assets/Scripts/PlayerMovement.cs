@@ -57,12 +57,12 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey("d")) RigidbodyMove("right", pace, focus);
         if (Input.GetKey("a")) RigidbodyMove("left", pace, focus);
 
-        if (Input.GetKeyDown("c")){
-            //Debug.Log(focus.GetComponent<Transform>().position.x);
-            Transform centerView = focus.GetComponent<Transform>();
-            //centerView = transform.position;
-            centerView.position = transform.position;
-        }
+        if (Input.GetKeyDown("c")) CenterView();
+    }
+
+    void CenterView(){
+        Transform centerView = focus.GetComponent<Transform>();
+        centerView.position = transform.position;
     }
 
     void ThirdPersonControls(float pace){
