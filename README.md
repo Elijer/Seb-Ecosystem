@@ -7,11 +7,11 @@ Those assets can be found here: https://github.com/Brackeys/NavMesh-Tutorial
 These assets are for NavMesh functionality, and have been imported into this project.
 
 ### Controls
-Select Camera: 1, 2, 3
-Eat Grass: hold space
-Look around: Press 1, click with mouse, move mouse
-Direct Character: Press 2, click somewhere on ground
-Center View: Press 2, click "c"
+* Select Camera: 1, 2, 3
+* Eat Grass: hold space
+* Look around: Press 1, click with mouse, move mouse
+* Direct Character: Press 2, click somewhere on ground
+* Center View: Press 2, click "c"
 
 ### Play
 A build for Mac is in the Builds folder
