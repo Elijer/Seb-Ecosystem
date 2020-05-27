@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -15,6 +16,9 @@ public class PlayerMovement : MonoBehaviour {
     public CharacterController controller;
     //public Transform player;
     public Rigidbody focus;
+
+    public NavMeshAgent agent;
+
 
     private float gravity;
     public float deltaCompensation = 40;
@@ -58,11 +62,27 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKey("a")) RigidbodyMove("left", pace, focus);
 
         if (Input.GetKeyDown("c")) CenterView();
+
+        RTSNav();
+
     }
 
     void CenterView(){
         Transform centerView = focus.GetComponent<Transform>();
         centerView.position = transform.position;
+    }
+
+    void RTSNav(){
+        if(Input.GetMouseButtonDown(0)){
+            //Input.mousePosition current mouseposition in screen coordinates
+            Ray ray = RTS.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+        //Physics.Raycast(ray, out hit shoots out a "ray" called ray and then saves the "hit" to a RacastHit object called hit
+            if (Physics.Raycast(ray, out hit)){
+                agent.SetDestination(hit.point);
+            }
+        }
     }
 
     void ThirdPersonControls(float pace){
