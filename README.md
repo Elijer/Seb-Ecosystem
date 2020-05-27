@@ -12,3 +12,6 @@ These assets are for NavMesh functionality, and have been imported into this pro
 ### Controls
 C - switch Camera
 Mouse - look around
+
+### Play
+A build for Mac is in the Builds folder
