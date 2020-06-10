@@ -11,6 +11,9 @@ Is it possible to automatically create an array of cameras in the scene instead 
 one by one? Dragging them all in one by one would honestly be great too, but I think it's worth looking
 into. */
 
+/* Yeah this page in the docs lists a method called 'allCameras' which lists all enabled cameras in
+the scene. Which isn't exactly what I want, but this page is a start.*/
+
 public class CameraManager : MonoBehaviour {
 
     public Camera cam1;
