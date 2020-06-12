@@ -50,6 +50,7 @@ public class Environment : MonoBehaviour {
         SpawnInitialPopulations ();
     }
 
+    // I can use these when I want more control over the rate of plant growth
     /*StartCoroutine(plantSeeds){
 
     }
