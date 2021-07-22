@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// * This color comment is about refacturing
+
 /* What I should really do is to create an array that is full of the cameras and
 create a function that first selects one and makes it active as well as it's audio listener
 and then immediately goes through all others and makes them inactive.
@@ -16,6 +18,7 @@ the scene. Which isn't exactly what I want, but this page is a start.*/
 
 public class CameraManager : MonoBehaviour {
 
+    // * initialize together
     public Camera cam1;
 	public Camera cam2;
     public Camera cam3;
@@ -23,6 +26,7 @@ public class CameraManager : MonoBehaviour {
     public Transform player;
 
     void Start(){
+        // Which camera does the player start on
         CamSwitcher(4);    //Switches the camera
     }
 
@@ -31,12 +35,8 @@ public class CameraManager : MonoBehaviour {
     }
 
     void KeyScanner(){
-        switch(Input.inputString){
-            case "1": CamSwitcher(1); break;
-            case "2": CamSwitcher(2); break;
-            case "3": CamSwitcher(3); break;
-            case "4": CamSwitcher(4); break;
-        }
+        int cameraSelection = int.Parse(Input.inputString);
+        CamSwitcher(cameraSelection);
     }
 
     void CamSwitcher(int cam){

@@ -27,8 +27,6 @@ public class BunnyBrain2 : MonoBehaviour {
         if (Input.GetKeyDown("b")) Turn("right");
         if (Input.GetKeyDown("n")) Turn("left");
         if (Input.GetKeyDown("m")) Hop();
-
-
     }
 
     void Turn(string d){
@@ -45,6 +43,10 @@ public class BunnyBrain2 : MonoBehaviour {
     }
 
     void Look(){
+    }
+
+    void SensoryLoop(){
+     //console.log("I'm ALIIIIVE");
     }
 }
 
