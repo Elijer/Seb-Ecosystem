@@ -40,6 +40,8 @@ public class CameraManager : MonoBehaviour {
     }
 
     void CamSwitcher(int cam){
+        // * should create an options array that holds options objects for each camera
+
         if (cam == 1){
             Cursor.lockState = CursorLockMode.Locked;
 			cam1.enabled = true;    cam1.GetComponent<AudioListener>().enabled = true;
