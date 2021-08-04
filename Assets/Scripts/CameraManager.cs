@@ -27,7 +27,7 @@ public class CameraManager : MonoBehaviour {
 
     void Start(){
         // Which camera does the player start on
-        CamSwitcher(4);    //Switches the camera
+        CamSwitcher(1);    //Switches the camera
     }
 
     void Update() {
@@ -35,7 +35,8 @@ public class CameraManager : MonoBehaviour {
     }
 
     void KeyScanner(){
-        int cameraSelection = int.Parse(Input.inputString);
+        int cameraSelection;
+        System.Int32.TryParse(Input.inputString, out cameraSelection);
         CamSwitcher(cameraSelection);
     }
 
