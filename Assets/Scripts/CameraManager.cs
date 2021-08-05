@@ -59,9 +59,6 @@ public class CameraManager : MonoBehaviour {
             case 2:
                 RotationReset();
                 break;
-/*             default:
-                RotationReset();
-                break; */
         }
 
         

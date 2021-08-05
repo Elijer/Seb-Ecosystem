@@ -13,23 +13,19 @@ public class MouseLook : MonoBehaviour
 
     private bool lookLock = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //Hides Cursor
-        //Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
     void Update() {
       if (thisCamera.enabled == true){
         MouseLooker();
       }
     }
 
+    // This locks and unlocks the camera for testing purposes
     void MouseLooker(){
             if (Input.GetMouseButtonDown(0)){
-          //Debug.Log("Mouse Down");
           lookLock = !lookLock;
       }
 
