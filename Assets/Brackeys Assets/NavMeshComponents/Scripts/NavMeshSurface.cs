@@ -368,17 +368,15 @@ namespace UnityEngine.AI
             if (m_NavMeshData == null)
                 return false;
 
-
-    /*Assets/Brackeys Assets/NavMeshComponents/Scripts/NavMeshSurface.cs(371,30):
-     warning CS0618: 'PrefabUtility.GetPrefabType(Object)' is obsolete:
-     'Use GetPrefabAssetType
-     and
-     GetPrefabInstanceStatus
-     to get the full picture about Prefab types.'*/
+            // OBSOLETE CODE I REPLACED, Elijah Kennedy 9:42
+            // According to this thread: https://github.com/Unity-Technologies/2d-extras/issues/71
+/*          var prefabType = UnityEditor.PrefabUtility.GetPrefabType(this);
+            if (prefabType == UnityEditor.PrefabType.Prefab)
+                return false; */
 
             // Prefab parent owns the asset reference
-            var prefabType = UnityEditor.PrefabUtility.GetPrefabType(this);
-            if (prefabType == UnityEditor.PrefabType.Prefab)
+            var prefabType = UnityEditor.PrefabUtility.IsPartOfPrefabAsset(this);
+            if (prefabType)
                 return false;
 
             // An instance can share asset reference only with its prefab parent

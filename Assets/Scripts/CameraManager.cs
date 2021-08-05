@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour {
 
+    //test
+
     // camera array
     public Camera[] cameras = new Camera[3];
     public Transform player;
