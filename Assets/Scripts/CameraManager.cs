@@ -40,7 +40,6 @@ public class CameraManager : MonoBehaviour {
 
     void CamSwitcher(int cam){
         Cursor.lockState = CursorLockMode.Locked;
-        Debug.Log(cam);
         for(int i = 0; i < cameras.Length; i++ ){
             if (i == cam){
                 configureCamera(cameras[i], true);
