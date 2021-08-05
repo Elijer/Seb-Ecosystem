@@ -9,7 +9,7 @@ public class BunnyBrain2 : MonoBehaviour {
     public float torque1;
     public float torque2;
     public float torque3;
-    private float timeCount = 0.2f;
+    //private float timeCount = 0.2f;
 
     public float bunnyTurn = 0;
     public float turnAmount;
