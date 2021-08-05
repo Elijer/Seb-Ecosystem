@@ -25,7 +25,7 @@ public class CameraManager : MonoBehaviour {
         if (keyInput != ""){
             int validSelection;
             System.Int32.TryParse(Input.inputString, out validSelection);
-            if (validSelection <= cameras.Length + 1 && validSelection > 0){
+            if (validSelection <= cameras.Length && validSelection > 0){
                 CamSwitcher(validSelection - 1);
             }
         }
