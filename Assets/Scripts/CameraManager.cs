@@ -39,6 +39,7 @@ public class CameraManager : MonoBehaviour {
 
 
     void CamSwitcher(int cam){
+        Cursor.lockState = CursorLockMode.Locked;
         Debug.Log(cam);
         for(int i = 0; i < cameras.Length; i++ ){
             if (i == cam){
@@ -50,7 +51,6 @@ public class CameraManager : MonoBehaviour {
 
         switch (cam) {  
             case 0:
-                Cursor.lockState = CursorLockMode.Locked;
                 break;
             case 1:
                 RotationReset();
@@ -58,12 +58,10 @@ public class CameraManager : MonoBehaviour {
                 break;
             case 2:
                 RotationReset();
-                Cursor.lockState = CursorLockMode.Locked;
                 break;
-            default:
-                Cursor.lockState = CursorLockMode.Locked;
+/*             default:
                 RotationReset();
-                break;
+                break; */
         }
 
         
