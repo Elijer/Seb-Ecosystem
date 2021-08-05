@@ -39,6 +39,7 @@ public class CameraManager : MonoBehaviour {
 
 
     void CamSwitcher(int cam){
+        Debug.Log(cam);
         for(int i = 0; i < cameras.Length; i++ ){
             if (i == cam){
                 configureCamera(cameras[i], true);
