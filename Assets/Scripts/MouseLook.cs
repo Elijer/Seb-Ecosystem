@@ -23,14 +23,16 @@ public class MouseLook : MonoBehaviour
       }
     }
 
-    // This locks and unlocks the camera for testing purposes
     void MouseLooker(){
-            if (Input.GetMouseButtonDown(0)){
+
+      // Rightclick toggles view lock for testing purposes:
+      // Lets you keep the same view while changing variable values in GUI etc.
+      if (Input.GetMouseButtonDown(0)){
           lookLock = !lookLock;
       }
 
       if (lookLock == false){
-                // Looking
+        // Looking
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
