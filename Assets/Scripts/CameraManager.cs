@@ -19,10 +19,8 @@ the scene. Which isn't exactly what I want, but this page is a start.*/
 public class CameraManager : MonoBehaviour {
 
     // * initialize together
-    public Camera cam1;
-	public Camera cam2;
-    public Camera cam3;
-    public Camera cam4;
+    public Camera[] cameras = new Camera[4];
+    public Camera cam1, cam2, cam3, cam4;
     public Transform player;
 
     void Start(){
@@ -40,8 +38,14 @@ public class CameraManager : MonoBehaviour {
         CamSwitcher(cameraSelection);
     }
 
+    // * Not yet used
+    void configureCamera(Camera cam, bool isActive){
+        cam.enabled = isActive;
+        cam.GetComponent<AudioListener>().enabled = isActive;
+    }
+
+
     void CamSwitcher(int cam){
-        // * should create an options array that holds options objects for each camera
 
         if (cam == 1){
             Cursor.lockState = CursorLockMode.Locked;
